@@ -1,0 +1,29 @@
+$main-color: #011936;
+html, body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: rgb(4,0,66);
+  background: linear-gradient(90deg, rgba(4,0,66,1) 0%, rgba(12,12,107,1) 82%, rgba(87,87,87,1) 100%);
+}
+
+main {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: $main-color;
+  min-height: 100vh;
+}
+
+@media only screen and (min-width: 600px){
+  main {
+    width: 70%;
+    max-width: 50rem;
+    border-radius: 10px;
+    box-shadow: 7px 7px 0px rgba(0, 0, 0, 0.50);
+    min-height: calc(100vh - 4rem);
+    margin: 2rem auto;
+  }
+}

@@ -4,6 +4,12 @@ import './FreqController.scss';
 export default (axis) => {
     const prop = `getFreq${axis}`;
     const defaultVal = 1;
+
+    const controlFieldWrapper = createDOMElement('div', null, ['freq-controller__container-wrapper']);
+    const controlFieldHeader = createDOMElement('h2');
+    controlFieldHeader.innerText = axis.toUpperCase();
+    controlFieldWrapper.appendChild(controlFieldHeader);
+
     const controlField = createDOMElement('div', null, ['freq-controller__container']);
     const controlBtnContainer = createDOMElement('div', null, ['freq-controller__btn-container']);
 
@@ -19,8 +25,9 @@ export default (axis) => {
 
     controlField.appendChild(displayFreq);
     controlField.appendChild(controlBtnContainer);
+    controlFieldWrapper.appendChild(controlField);
 
-    return controlField;
+    return controlFieldWrapper;
 };
 
 function createBtn(direction, cb) {

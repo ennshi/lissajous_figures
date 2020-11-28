@@ -31,6 +31,15 @@ button {
   outline: none;
 }
 
+h1, h2 {
+  margin: 0;
+  color: #ffffff;
+}
+
+h2 {
+  font-size: 1.4rem;
+}
+
 .btn--grey {
   background-color: var(--additional-color);
   color: #ffffff;

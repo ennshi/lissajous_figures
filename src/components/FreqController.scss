@@ -1,14 +1,14 @@
 .freq-controller__container {
   display: flex;
   min-width: 5rem;
-  min-height: 10rem;
   align-items: center;
   justify-content: space-around;
 }
 
-.freq-controller__btn-container {
+.freq-controller__container-wrapper, .freq-controller__btn-container {
   display: flex;
   flex-direction: column;
+  text-align: center;
 }
 
 .freq-controller__btn {

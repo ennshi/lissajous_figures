@@ -49,6 +49,9 @@ function createTopControllersContainer() {
 
 function createHeader() {
     const container = createDOMElement('header', null, ['control-panel__header']);
+    const name = createDOMElement('h1');
+    name.innerText = 'Lissajous Figures';
+    container.appendChild(name);
     return container;
 }
 

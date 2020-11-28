@@ -1,4 +1,11 @@
-$main-color: #011936;
+:root {
+  --main-color: #011936;
+  --accent-color: #8EFE36;
+  --additional-color: #726E75;
+  --additional-color-darker: #444242;
+  --light: #D9D9D9;
+}
+
 html, body {
   width: 100%;
   margin: 0;
@@ -13,8 +20,28 @@ body {
 main {
   width: 100%;
   box-sizing: border-box;
-  background-color: $main-color;
+  background-color: var(--main-color);
   min-height: 100vh;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+}
+
+.btn--grey {
+  background-color: var(--additional-color);
+  color: #ffffff;
+  box-shadow: 3px 3px 0 var(--additional-color-darker);
+  position: relative;
+
+  &:active {
+    box-shadow: none;
+    top: 3px;
+    right: -3px;
+  }
 }
 
 @media only screen and (min-width: 600px){

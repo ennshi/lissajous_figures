@@ -3,7 +3,8 @@ import FreqController from './FreqController';
 import './UI.scss';
 import Plot from './Plot';
 import Button from './Button';
-import StartBtn from "./StartBtn";
+import StartBtn from './StartBtn';
+import SpeedBtn from './SpeedBtn';
 
 export default (function () {
     const rootContainer = document.getElementById('root');
@@ -38,7 +39,11 @@ function createControlPanel() {
 function createTopControllersContainer() {
     const container = createDOMElement('section', null, ['control-panel__inner-container']);
     const btnStart = StartBtn(() => (console.log(1)));
-    container.append(btnStart);
+    const btnSpeed = SpeedBtn(() => (console.log(2)));
+    const btnHelp = Button('?', ['btn--grey', 'btn--top'], () => {});
+    container.appendChild(btnStart);
+    container.appendChild(btnSpeed);
+    container.appendChild(btnHelp);
     return container;
 }
 
@@ -60,7 +65,7 @@ function createBottomControllersContainer() {
     const container = createDOMElement('section', null, ['control-panel__inner-container']);
     const btnSave = Button('Save', ['btn--grey', 'btn--bottom'], () => {});
     const btnClear = Button('Clear', ['btn--grey', 'btn--bottom'], () => {});
-    container.append(btnSave);
-    container.append(btnClear);
+    container.appendChild(btnSave);
+    container.appendChild(btnClear);
     return container;
 }

@@ -1,0 +1,15 @@
+.plot {
+  width: 90vw;
+  max-width: 32rem;
+  margin: 1rem auto;
+  background-color: var(--additional-color-darker);
+  height: 30vh;
+  border: 10px solid var(--light);
+}
+
+@media only screen and (min-width: 600px){
+  .plot {
+    width: 50vw;
+    max-width: 32rem;
+  }
+}

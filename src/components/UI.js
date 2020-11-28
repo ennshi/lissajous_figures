@@ -1,6 +1,7 @@
 import {createDOMElement} from '../utils/DOM';
 import FreqController from './FreqController';
 import './UI.scss';
+import Plot from './Plot';
 
 export default (function () {
     const rootContainer = document.getElementById('root');
@@ -15,6 +16,8 @@ export default (function () {
 
 function createPlotContainer() {
     const container = createDOMElement('section', null, ['plot__container']);
+    const plot = Plot.plot;
+    container.appendChild(plot);
     return container;
 }
 

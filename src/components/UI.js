@@ -3,6 +3,7 @@ import FreqController from './FreqController';
 import './UI.scss';
 import Plot from './Plot';
 import Button from './Button';
+import StartBtn from "./StartBtn";
 
 export default (function () {
     const rootContainer = document.getElementById('root');
@@ -24,6 +25,8 @@ function createPlotContainer() {
 
 function createControlPanel() {
     const container = createDOMElement('section', null, ['control-panel__container']);
+    const topControllers = createTopControllersContainer();
+    container.appendChild(topControllers);
     const header = createHeader();
     container.appendChild(header);
     const freqControllers = createFreqControllersContainer();
@@ -32,6 +35,13 @@ function createControlPanel() {
     container.appendChild(bottomControllers);
     return container;
 }
+function createTopControllersContainer() {
+    const container = createDOMElement('section', null, ['control-panel__inner-container']);
+    const btnStart = StartBtn(() => (console.log(1)));
+    container.append(btnStart);
+    return container;
+}
+
 function createHeader() {
     const container = createDOMElement('header', null, ['control-panel__header']);
     return container;

@@ -2,6 +2,7 @@ import {createDOMElement} from '../utils/DOM';
 import FreqController from './FreqController';
 import './UI.scss';
 import Plot from './Plot';
+import Button from './Button';
 
 export default (function () {
     const rootContainer = document.getElementById('root');
@@ -47,5 +48,9 @@ function createFreqControllersContainer() {
 
 function createBottomControllersContainer() {
     const container = createDOMElement('section', null, ['control-panel__inner-container']);
+    const btnSave = Button('Save', ['btn--grey', 'btn--bottom'], () => {});
+    const btnClear = Button('Clear', ['btn--grey', 'btn--bottom'], () => {});
+    container.append(btnSave);
+    container.append(btnClear);
     return container;
 }

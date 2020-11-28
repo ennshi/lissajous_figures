@@ -1,4 +1,6 @@
-import {createDOMElement} from "../utils/DOM";
+import {createDOMElement} from '../utils/DOM';
+import FreqController from './FreqController';
+import './UI.scss';
 
 export default (function () {
     const rootContainer = document.getElementById('root');
@@ -32,11 +34,15 @@ function createHeader() {
 }
 
 function createFreqControllersContainer() {
-    const container = createDOMElement('section', null, ['control-panel__freq-controllers-container']);
+    const container = createDOMElement('section', null, ['control-panel__inner-container']);
+    const freqControllerX = FreqController('X');
+    const freqControllerY = FreqController('Y');
+    container.appendChild(freqControllerX);
+    container.appendChild(freqControllerY);
     return container;
 }
 
 function createBottomControllersContainer() {
-    const container = createDOMElement('section', null, ['control-panel__bottom-controllers-container']);
+    const container = createDOMElement('section', null, ['control-panel__inner-container']);
     return container;
 }

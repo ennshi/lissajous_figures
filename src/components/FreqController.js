@@ -8,7 +8,6 @@ export default (axis) => {
     const controlFieldWrapper = createDOMElement('div', null, ['freq-controller__container-wrapper']);
     const controlFieldHeader = createDOMElement('h2');
     controlFieldHeader.innerText = axis.toUpperCase();
-    controlFieldWrapper.appendChild(controlFieldHeader);
 
     const controlField = createDOMElement('div', null, ['freq-controller__container']);
     const controlBtnContainer = createDOMElement('div', null, ['freq-controller__btn-container']);
@@ -20,12 +19,9 @@ export default (axis) => {
     const btnIncrease = createBtn('up', () => {});
     const btnDecrease = createBtn('down', () => {});
 
-    controlBtnContainer.appendChild(btnIncrease);
-    controlBtnContainer.appendChild(btnDecrease);
-
-    controlField.appendChild(displayFreq);
-    controlField.appendChild(controlBtnContainer);
-    controlFieldWrapper.appendChild(controlField);
+    controlBtnContainer.append(btnIncrease, btnDecrease);
+    controlField.append(displayFreq, controlBtnContainer);
+    controlFieldWrapper.append(controlFieldHeader, controlField);
 
     return controlFieldWrapper;
 };

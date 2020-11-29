@@ -11,8 +11,7 @@ export default (function () {
     const render = () => {
         const plotContainer = createPlotContainer();
         const controlPanel = createControlPanel();
-        rootContainer.appendChild(plotContainer);
-        rootContainer.appendChild(controlPanel);
+        rootContainer.append(plotContainer, controlPanel)
     };
     return {render};
 })();
@@ -27,13 +26,10 @@ function createPlotContainer() {
 function createControlPanel() {
     const container = createDOMElement('section', null, ['control-panel__container']);
     const topControllers = createTopControllersContainer();
-    container.appendChild(topControllers);
     const header = createHeader();
-    container.appendChild(header);
     const freqControllers = createFreqControllersContainer();
-    container.appendChild(freqControllers);
     const bottomControllers = createBottomControllersContainer();
-    container.appendChild(bottomControllers);
+    container.append(topControllers, header, freqControllers, bottomControllers);
     return container;
 }
 function createTopControllersContainer() {
@@ -41,9 +37,7 @@ function createTopControllersContainer() {
     const btnStart = StartBtn(() => (console.log(1)));
     const btnSpeed = SpeedBtn(() => (console.log(2)));
     const btnHelp = Button('?', ['btn--grey', 'btn--top'], () => {});
-    container.appendChild(btnStart);
-    container.appendChild(btnSpeed);
-    container.appendChild(btnHelp);
+    container.append(btnStart, btnSpeed, btnHelp);
     return container;
 }
 
@@ -59,8 +53,7 @@ function createFreqControllersContainer() {
     const container = createDOMElement('section', null, ['control-panel__inner-container']);
     const freqControllerX = FreqController('X');
     const freqControllerY = FreqController('Y');
-    container.appendChild(freqControllerX);
-    container.appendChild(freqControllerY);
+    container.append(freqControllerX, freqControllerY);
     return container;
 }
 
@@ -68,7 +61,6 @@ function createBottomControllersContainer() {
     const container = createDOMElement('section', null, ['control-panel__inner-container']);
     const btnSave = Button('Save', ['btn--grey', 'btn--bottom'], () => {});
     const btnClear = Button('Clear', ['btn--grey', 'btn--bottom'], () => {});
-    container.appendChild(btnSave);
-    container.appendChild(btnClear);
+    container.append(btnSave, btnClear);
     return container;
 }

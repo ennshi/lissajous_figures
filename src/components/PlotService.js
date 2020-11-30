@@ -1,11 +1,7 @@
-import {MAX_FREQUENCY, MIN_FREQUENCY, SPEED_dPHASE} from "../utils/constants";
+import {INITIAL_PARAMS, MAX_FREQUENCY, MIN_FREQUENCY, SPEED_dPHASE} from "../utils/constants";
 
 export default (function () {
-    const params = {
-        freqX: MIN_FREQUENCY,
-        freqY: MIN_FREQUENCY,
-        speed: SPEED_dPHASE[0],
-    };
+    const params = {...INITIAL_PARAMS};
     const getFreqX = () => (params.freqX);
     const getFreqY = () => (params.freqY);
     const getSpeed = () => (params.speed);

@@ -1,24 +1,24 @@
 import {createDOMElement} from '../utils/DOM';
 import FreqController from './FreqController';
 import './UI.scss';
-import Plot from './Plot';
 import Button from './Button';
 import StartBtn from './StartBtn';
-import SpeedBtn from './SpeedBtn';
+import {AXIS_X, AXIS_Y} from '../utils/constants';
+import PlotService from "./PlotService";
 
 export default (function () {
     const rootContainer = document.getElementById('root');
-    const render = () => {
+    const render = async () => {
         const plotContainer = createPlotContainer();
         const controlPanel = createControlPanel();
-        rootContainer.append(plotContainer, controlPanel)
+        await rootContainer.append(plotContainer, controlPanel);
     };
     return {render};
 })();
 
 function createPlotContainer() {
     const container = createDOMElement('section', null, ['plot__container']);
-    const plot = Plot.plot;
+    const plot = createDOMElement('div', {id: 'plot'},['plot']);
     container.appendChild(plot);
     return container;
 }
@@ -32,10 +32,14 @@ function createControlPanel() {
     container.append(topControllers, header, freqControllers, bottomControllers);
     return container;
 }
+
 function createTopControllersContainer() {
     const container = createDOMElement('section', null, ['control-panel__inner-container']);
     const btnStart = StartBtn(() => (console.log(1)));
-    const btnSpeed = SpeedBtn(() => (console.log(2)));
+    const btnSpeed = Button(PlotService.getSpeed().text,
+        ['btn--grey', 'btn--top'],
+        () => (btnSpeed.innerHTML = PlotService.changeSpeed().text)
+    );
     const btnHelp = Button('?', ['btn--grey', 'btn--top'], () => {});
     container.append(btnStart, btnSpeed, btnHelp);
     return container;
@@ -51,8 +55,8 @@ function createHeader() {
 
 function createFreqControllersContainer() {
     const container = createDOMElement('section', null, ['control-panel__inner-container']);
-    const freqControllerX = FreqController('X');
-    const freqControllerY = FreqController('Y');
+    const freqControllerX = FreqController(AXIS_X);
+    const freqControllerY = FreqController(AXIS_Y);
     container.append(freqControllerX, freqControllerY);
     return container;
 }

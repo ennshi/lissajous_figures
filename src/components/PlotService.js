@@ -1,4 +1,3 @@
-import Plotly from 'plotly.js-dist';
 import {MAX_FREQUENCY, MIN_FREQUENCY, SPEED_dPHASE} from "../utils/constants";
 
 export default (function () {
@@ -6,11 +5,9 @@ export default (function () {
         freqX: MIN_FREQUENCY,
         freqY: MIN_FREQUENCY,
         speed: SPEED_dPHASE[0],
-        continue: false
     };
     const getFreqX = () => (params.freqX);
     const getFreqY = () => (params.freqY);
-    const getContinue = () => (params.continue);
     const getSpeed = () => (params.speed);
 
     const upFreqX = () => {

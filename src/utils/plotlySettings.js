@@ -16,6 +16,14 @@ export const TRACE_SETTINGS = {
     }
 };
 
+export const SAVED_TRACE = {
+    mode: 'lines',
+    hoverinfo: 'none',
+    line: {
+        width: 2
+    }
+};
+
 export const LAYOUT = {
     xaxis: {range: [-AMPLITUDE - 0.1, AMPLITUDE + 0.1]},
     yaxis: {range: [-AMPLITUDE - 0.1, AMPLITUDE + 0.1]},
@@ -27,7 +35,8 @@ export const LAYOUT = {
         b: 5,
         t: 5,
         pad: 5
-    }
+    },
+    showlegend: false
 };
 
 export const PLOT_CONFIG = {

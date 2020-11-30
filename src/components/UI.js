@@ -1,24 +1,23 @@
 import {createDOMElement} from '../utils/DOM';
 import FreqController from './FreqController';
 import './UI.scss';
-import Plot from './Plot';
 import Button from './Button';
 import StartBtn from './StartBtn';
 import SpeedBtn from './SpeedBtn';
 
 export default (function () {
     const rootContainer = document.getElementById('root');
-    const render = () => {
+    const render = async () => {
         const plotContainer = createPlotContainer();
         const controlPanel = createControlPanel();
-        rootContainer.append(plotContainer, controlPanel)
+        await rootContainer.append(plotContainer, controlPanel);
     };
     return {render};
 })();
 
 function createPlotContainer() {
     const container = createDOMElement('section', null, ['plot__container']);
-    const plot = Plot.plot;
+    const plot = createDOMElement('div', {id: 'plot'},['plot']);
     container.appendChild(plot);
     return container;
 }
@@ -32,6 +31,7 @@ function createControlPanel() {
     container.append(topControllers, header, freqControllers, bottomControllers);
     return container;
 }
+
 function createTopControllersContainer() {
     const container = createDOMElement('section', null, ['control-panel__inner-container']);
     const btnStart = StartBtn(() => (console.log(1)));

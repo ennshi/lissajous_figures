@@ -5,7 +5,7 @@ export default (function () {
     const params = {
         freqX: MIN_FREQUENCY,
         freqY: MIN_FREQUENCY,
-        speed: SPEED_dPHASE.X2,
+        speed: SPEED_dPHASE[0],
         continue: false
     };
     const getFreqX = () => (params.freqX);
@@ -37,12 +37,18 @@ export default (function () {
         }
         return getFreqY();
     };
+    const changeSpeed = () => {
+        params.speed = SPEED_dPHASE[getSpeed().next];
+        return getSpeed();
+    };
     return {
         upFreqX,
         upFreqY,
         downFreqX,
         downFreqY,
         getFreqX,
-        getFreqY
+        getFreqY,
+        getSpeed,
+        changeSpeed
     };
 })();

@@ -3,8 +3,8 @@ import FreqController from './FreqController';
 import './UI.scss';
 import Button from './Button';
 import StartBtn from './StartBtn';
-import SpeedBtn from './SpeedBtn';
 import {AXIS_X, AXIS_Y} from '../utils/constants';
+import PlotService from "./PlotService";
 
 export default (function () {
     const rootContainer = document.getElementById('root');
@@ -36,7 +36,10 @@ function createControlPanel() {
 function createTopControllersContainer() {
     const container = createDOMElement('section', null, ['control-panel__inner-container']);
     const btnStart = StartBtn(() => (console.log(1)));
-    const btnSpeed = SpeedBtn();
+    const btnSpeed = Button(PlotService.getSpeed().text,
+        ['btn--grey', 'btn--top'],
+        () => (btnSpeed.innerHTML = PlotService.changeSpeed().text)
+    );
     const btnHelp = Button('?', ['btn--grey', 'btn--top'], () => {});
     container.append(btnStart, btnSpeed, btnHelp);
     return container;

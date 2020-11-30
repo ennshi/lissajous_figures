@@ -4,7 +4,9 @@ import './UI.scss';
 import Button from './Button';
 import StartBtn from './StartBtn';
 import {AXIS_X, AXIS_Y} from '../utils/constants';
-import PlotService from "./PlotService";
+import PlotService from './PlotService';
+import {PLOT_ID} from '../utils/plotlySettings';
+import PlotAnimService from "./PlotAnimService";
 
 export default (function () {
     const rootContainer = document.getElementById('root');
@@ -12,13 +14,14 @@ export default (function () {
         const plotContainer = createPlotContainer();
         const controlPanel = createControlPanel();
         await rootContainer.append(plotContainer, controlPanel);
+        PlotAnimService.setDefaultPlot();
     };
     return {render};
 })();
 
 function createPlotContainer() {
     const container = createDOMElement('section', null, ['plot__container']);
-    const plot = createDOMElement('div', {id: 'plot'},['plot']);
+    const plot = createDOMElement('div', {id: PLOT_ID},['plot']);
     container.appendChild(plot);
     return container;
 }

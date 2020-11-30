@@ -17,12 +17,29 @@ export const TRACE_SETTINGS = {
 };
 
 export const LAYOUT = {
-    xaxis: {range: [-AMPLITUDE, AMPLITUDE]},
-    yaxis: {range: [-AMPLITUDE, AMPLITUDE]},
+    xaxis: {range: [-AMPLITUDE - 0.1, AMPLITUDE + 0.1]},
+    yaxis: {range: [-AMPLITUDE - 0.1, AMPLITUDE + 0.1]},
     paper_bgcolor: 'rgb(68, 66, 66)',
-    plot_bgcolor: 'rgb(68, 66, 66)'
+    plot_bgcolor: 'rgb(68, 66, 66)',
+    margin: {
+        l: 5,
+        r: 5,
+        b: 5,
+        t: 5,
+        pad: 5
+    }
 };
 
 export const PLOT_CONFIG = {
     displayModeBar: false,
+};
+
+export const ANIM_CONFIG = {
+    transition: {
+        duration: 0,
+    },
+    frame: {
+        duration: 0,
+        redraw: false,
+    }
 };

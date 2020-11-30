@@ -25,6 +25,7 @@
     "webpack-merge": "^5.4.0"
   },
   "dependencies": {
-    "node-sass": "^5.0.0"
+    "node-sass": "^5.0.0",
+    "plotly.js-dist": "^1.57.1"
   }
 }

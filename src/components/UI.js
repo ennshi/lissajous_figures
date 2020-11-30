@@ -27,7 +27,10 @@ function createPlotContainer() {
 }
 
 function createControlPanel() {
-    const container = createDOMElement('section', null, ['control-panel__container']);
+    const container = createDOMElement('section',
+        null,
+        ['control-panel__container']
+    );
     const topControllers = createTopControllersContainer();
     const header = createHeader();
     const freqControllers = createFreqControllersContainer();
@@ -43,13 +46,19 @@ function createTopControllersContainer() {
         ['btn--grey', 'btn--top'],
         () => (btnSpeed.innerHTML = PlotService.changeSpeed().text)
     );
-    const btnHelp = Button('?', ['btn--grey', 'btn--top'], () => {});
+    const btnHelp = Button('?',
+        ['btn--grey', 'btn--top'],
+        () => {}
+    );
     container.append(btnStart, btnSpeed, btnHelp);
     return container;
 }
 
 function createHeader() {
-    const container = createDOMElement('header', null, ['control-panel__header']);
+    const container = createDOMElement('header',
+        null,
+        ['control-panel__header']
+    );
     const name = createDOMElement('h1');
     name.innerText = 'Lissajous Figures';
     container.appendChild(name);
@@ -57,7 +66,10 @@ function createHeader() {
 }
 
 function createFreqControllersContainer() {
-    const container = createDOMElement('section', null, ['control-panel__inner-container']);
+    const container = createDOMElement('section',
+        null,
+        ['control-panel__inner-container']
+    );
     const freqControllerX = FreqController(AXIS_X);
     const freqControllerY = FreqController(AXIS_Y);
     container.append(freqControllerX, freqControllerY);
@@ -65,9 +77,17 @@ function createFreqControllersContainer() {
 }
 
 function createBottomControllersContainer() {
-    const container = createDOMElement('section', null, ['control-panel__inner-container']);
-    const btnSave = Button('Save', ['btn--grey', 'btn--bottom'], () => {});
-    const btnClear = Button('Clear', ['btn--grey', 'btn--bottom'], () => {});
+    const container = createDOMElement('section',
+        null,
+        ['control-panel__inner-container']
+    );
+    const btnSave = Button('Save',
+        ['btn--grey', 'btn--bottom'],
+        () => (PlotAnimService.addPlot())
+    );
+    const btnClear = Button('Clear',
+        ['btn--grey', 'btn--bottom'],
+        () => (PlotAnimService.clearAll()));
     container.append(btnSave, btnClear);
     return container;
 }

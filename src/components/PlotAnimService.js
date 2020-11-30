@@ -1,6 +1,14 @@
 import Plotly from 'plotly.js-dist';
-import {ANIM_CONFIG, INIT_DATA, LAYOUT, PLOT_CONFIG, PLOT_ID, TRACE_SETTINGS} from "../utils/plotlySettings";
-import {AMPLITUDE, dT, MAX_PHASE, MAX_T} from "../utils/constants";
+import {
+    ANIM_CONFIG,
+    INIT_DATA,
+    LAYOUT,
+    PLOT_CONFIG,
+    PLOT_ID,
+    SAVED_TRACE,
+    TRACE_SETTINGS
+} from "../utils/plotlySettings";
+import {AMPLITUDE, dT, MAX_NUM_PLOTS, MAX_PHASE, MAX_T} from '../utils/constants';
 import PlotService from './PlotService';
 
 export default (function () {
@@ -13,7 +21,11 @@ export default (function () {
     };
     const getStart = () => (params.start);
     const setDefaultPlot = () => {
-        Plotly.newPlot(PLOT_ID, [{...INIT_DATA, ...TRACE_SETTINGS}], LAYOUT, PLOT_CONFIG);
+        Plotly.newPlot(PLOT_ID,
+            [{...INIT_DATA, ...TRACE_SETTINGS}],
+            LAYOUT,
+            PLOT_CONFIG
+        );
     };
     const updateData = () => {
         if(params.start) {
@@ -23,7 +35,9 @@ export default (function () {
                 {data: [{...params.data}]},
                 ANIM_CONFIG
             );
-            params.phaseDiff = phDiff < MAX_PHASE ? parseFloat((phDiff + PlotService.getSpeed().num).toFixed(3)) : 0;
+            params.phaseDiff = phDiff < MAX_PHASE ?
+                parseFloat((phDiff + PlotService.getSpeed().num).toFixed(3)) :
+                0;
             params.reqFrame = requestAnimationFrame(updateData);
         }
     };
@@ -35,17 +49,30 @@ export default (function () {
         params.start = false;
         params.reqFrame = null;
     };
+    const allowSavePlot = () => (params.numPlots < MAX_NUM_PLOTS);
     const addPlot = () => {
-
+        stopAnimation();
+        if(allowSavePlot()) {
+            Plotly.plot(PLOT_ID,
+                [{...params.data, ...SAVED_TRACE}],
+                LAYOUT,
+                PLOT_CONFIG
+            );
+            params.numPlots++;
+        }
     };
     const clearAll = () => {
-
+        stopAnimation();
+        Object.assign(params, {data: INIT_DATA, phaseDiff: 0, numPlots: 0});
+        setDefaultPlot();
     };
     return {
         setDefaultPlot,
         startAnimation,
         stopAnimation,
-        getStart
+        getStart,
+        addPlot,
+        clearAll
     }
 })();
 

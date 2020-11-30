@@ -12,3 +12,9 @@ export const SPEED_dPHASE = {
 
 export const MAX_PHASE = 2.000;
 
+export const AXIS_X = 'X';
+export const AXIS_Y = 'Y';
+
+export const INCREASE = 'up';
+export const DECREASE = 'down';
+

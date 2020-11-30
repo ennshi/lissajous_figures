@@ -17,21 +17,25 @@ export default (function () {
         if(params.freqX < MAX_FREQUENCY) {
             params.freqX = getFreqX() + 1;
         }
+        return getFreqX();
     };
     const upFreqY = () => {
         if(params.freqY < MAX_FREQUENCY) {
             params.freqY = getFreqY() + 1;
         }
+        return getFreqY();
     };
     const downFreqX = () => {
         if(params.freqX > MIN_FREQUENCY) {
             params.freqX = getFreqX() - 1;
         }
+        return getFreqX();
     };
     const downFreqY = () => {
         if(params.freqY > MIN_FREQUENCY) {
             params.freqY = getFreqY() - 1;
         }
+        return getFreqY();
     };
     return {
         upFreqX,

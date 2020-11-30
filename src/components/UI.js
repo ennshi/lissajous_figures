@@ -4,6 +4,7 @@ import './UI.scss';
 import Button from './Button';
 import StartBtn from './StartBtn';
 import SpeedBtn from './SpeedBtn';
+import {AXIS_X, AXIS_Y} from '../utils/constants';
 
 export default (function () {
     const rootContainer = document.getElementById('root');
@@ -35,7 +36,7 @@ function createControlPanel() {
 function createTopControllersContainer() {
     const container = createDOMElement('section', null, ['control-panel__inner-container']);
     const btnStart = StartBtn(() => (console.log(1)));
-    const btnSpeed = SpeedBtn(() => (console.log(2)));
+    const btnSpeed = SpeedBtn();
     const btnHelp = Button('?', ['btn--grey', 'btn--top'], () => {});
     container.append(btnStart, btnSpeed, btnHelp);
     return container;
@@ -51,8 +52,8 @@ function createHeader() {
 
 function createFreqControllersContainer() {
     const container = createDOMElement('section', null, ['control-panel__inner-container']);
-    const freqControllerX = FreqController('X');
-    const freqControllerY = FreqController('Y');
+    const freqControllerX = FreqController(AXIS_X);
+    const freqControllerY = FreqController(AXIS_Y);
     container.append(freqControllerX, freqControllerY);
     return container;
 }

@@ -6,11 +6,10 @@ export default function () {
         ['btn--green', 'btn--top'],
         () => {
         if(PlotAnimService.getStart()) {
-            btn.innerHTML = '<i class="fas fa-play"></i>';
             return PlotAnimService.stopAnimation();
         }
-        btn.innerHTML = '<i class="fas fa-stop"></i>';
         PlotAnimService.startAnimation();
     });
+    btn.setAttribute('id', 'start-btn');
     return btn;
 }

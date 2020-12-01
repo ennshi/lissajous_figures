@@ -1,4 +1,3 @@
-import Plotly from 'plotly.js-dist';
 import {
     ANIM_CONFIG,
     INIT_DATA,

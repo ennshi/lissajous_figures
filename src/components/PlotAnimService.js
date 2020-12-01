@@ -41,10 +41,14 @@ export default (function () {
         }
     };
     const startAnimation = () => {
+        const startBtn = document.getElementById('start-btn');
+        startBtn.innerHTML = '<i class="fas fa-stop"></i>';
         params.start = true;
         updateData();
     };
     const stopAnimation = () => {
+        const startBtn = document.getElementById('start-btn');
+        startBtn.innerHTML = '<i class="fas fa-play"></i>';
         params.start = false;
         params.reqFrame = null;
     };

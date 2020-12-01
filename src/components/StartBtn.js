@@ -3,7 +3,7 @@ import PlotAnimService from "./PlotAnimService";
 
 export default function () {
     const btn = Button('<i class="fas fa-play"></i>',
-        ['btn--grey', 'btn--top'],
+        ['btn--green', 'btn--top'],
         () => {
         if(PlotAnimService.getStart()) {
             btn.innerHTML = '<i class="fas fa-play"></i>';

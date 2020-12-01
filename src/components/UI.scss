@@ -34,6 +34,8 @@
   background-color: var(--additional-color-darker);
   height: 30vh;
   border: 10px solid var(--light);
+  border-radius: 10px;
+  box-shadow: 4px 3px 0px rgba(13, 14, 35, 0.5);
 }
 
 @media only screen and (min-width: 600px){

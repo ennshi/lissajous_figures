@@ -1,13 +1,16 @@
-.btn--bottom {
-  width: 7rem;
+@mixin btn-shape($width, $border-radius, $font-size) {
+  width: $width;
   text-align: center;
   padding: 0.5rem;
-  border-radius: 5px;
+  font-size: $font-size;
+  border-radius: $border-radius;
+}
+
+.btn--bottom {
+  @include btn-shape(7rem, 5px, 1.2rem);
 }
 
 .btn--top {
-  width: 3.5rem;
-  text-align: center;
-  padding: 0.5rem;
-  border-radius: 50%;
+  @include btn-shape(3.5rem, 50%, 1rem);
 }
+

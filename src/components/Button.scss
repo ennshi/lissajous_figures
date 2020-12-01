@@ -14,3 +14,32 @@
   @include btn-shape(3.5rem, 50%, 1rem);
 }
 
+@mixin btn-color($color, $darker-color, $text-color) {
+  background-color: $color;
+  color: $text-color;
+  box-shadow: 3px 3px 0 $darker-color;
+  position: relative;
+  &:active {
+    box-shadow: none;
+    top: 3px;
+    right: -3px;
+  }
+}
+
+.btn--grey {
+  @include btn-color(var(--additional-color), var(--additional-color-darker), #ffffff);
+}
+
+.btn--green {
+  @include btn-color(var(--accent-color), var(--accent-color-darker), var(--main-color-darker));
+}
+
+.btn--transparent {
+  @include btn-color(transparent, transparent, #ffffff);
+}
+
+.btn--close {
+  @include btn-shape(3.5rem, 50%, 1.5rem);
+  float: right;
+  margin-top: 0.5rem;
+}

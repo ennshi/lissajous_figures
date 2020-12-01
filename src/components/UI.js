@@ -7,6 +7,7 @@ import {AXIS_X, AXIS_Y} from '../utils/constants';
 import PlotService from './PlotService';
 import {PLOT_ID} from '../utils/plotlySettings';
 import PlotAnimService from "./PlotAnimService";
+import Help from "./Help";
 
 export default (function () {
     const rootContainer = document.getElementById('root');
@@ -48,7 +49,7 @@ function createTopControllersContainer() {
     );
     const btnHelp = Button('?',
         ['btn--grey', 'btn--top'],
-        () => {}
+        () => (Help.show())
     );
     container.append(btnStart, btnSpeed, btnHelp);
     return container;

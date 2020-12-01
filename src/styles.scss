@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Ubuntu+Mono:wght@400;700&display=swap');
 :root {
   --main-color: #0C0C6B;
   --main-color-darker: #011936;
@@ -12,6 +13,8 @@ html, body {
   width: 100%;
   margin: 0;
   padding: 0;
+  font-family: 'Ubuntu Mono', monospace;
+  letter-spacing: 0.05rem;
 }
 
 body {
@@ -30,6 +33,9 @@ button {
   padding: 0;
   border: none;
   outline: none;
+  font-family: 'Ubuntu Mono', monospace;
+  letter-spacing: 0.05rem;
+  font-weight: bold;
 }
 
 h1, h2 {
@@ -46,8 +52,6 @@ h2 {
   color: $text-color;
   box-shadow: 3px 3px 0 $darker-color;
   position: relative;
-  font-weight: bold;
-  font-size: 1rem;
   &:active {
     box-shadow: none;
     top: 3px;

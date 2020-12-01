@@ -43,7 +43,7 @@ function createTopControllersContainer() {
     const container = createDOMElement('section', null, ['control-panel__inner-container']);
     const btnStart = StartBtn();
     const btnSpeed = Button(PlotService.getSpeed().text,
-        ['btn--grey', 'btn--top'],
+        ['btn--green', 'btn--top'],
         () => (btnSpeed.innerHTML = PlotService.changeSpeed().text)
     );
     const btnHelp = Button('?',
@@ -86,7 +86,7 @@ function createBottomControllersContainer() {
         () => (PlotAnimService.addPlot())
     );
     const btnClear = Button('Clear',
-        ['btn--grey', 'btn--bottom'],
+        ['btn--green', 'btn--bottom'],
         () => (PlotAnimService.clearAll()));
     container.append(btnSave, btnClear);
     return container;

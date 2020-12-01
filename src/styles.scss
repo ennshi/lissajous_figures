@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Ubuntu+Mono:wght@400;700&display=swap');
+:root {
+  --main-color: #0C0C6B;
+  --main-color-darker: #011936;
+  --accent-color: #8EFE36;
+  --accent-color-darker: #759E67;
+  --additional-color: #726E75;
+  --additional-color-darker: #444242;
+  --light: #D9D9D9;
+}
+
+html, body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Ubuntu Mono', monospace;
+  letter-spacing: 0.05rem;
+}
+
+body {
+  background: var(--main-color-darker);
+}
+
+main, .help__block {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: var(--main-color);
+  min-height: 100vh;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  font-family: 'Ubuntu Mono', monospace;
+  letter-spacing: 0.05rem;
+  font-weight: bold;
+}
+
+h1, h2 {
+  margin: 0;
+  color: #ffffff;
+}
+
+h2 {
+  font-size: 1.4rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.help__block {
+  h1 {
+    padding-top: 3rem;
+    text-align: center;
+  }
+}
+
+.help__text-container {
+  color: #ffffff;
+  padding: 0.5rem;
+  font-family: 'Open Sans', sans-serif;
+}
+
+@media only screen and (min-width: 600px){
+  main, .help__block {
+    width: 70%;
+    max-width: 50rem;
+    border-radius: 10px;
+    box-shadow: 7px 7px 0px rgba(0, 0, 0, 0.50);
+    min-height: calc(100vh - 2rem);
+    margin: 1rem auto;
+  }
+}

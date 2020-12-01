@@ -1,0 +1,46 @@
+.control-panel__container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.control-panel__header, .control-panel__inner-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 32rem;
+}
+
+.plot__container {
+  padding-top: 1rem;
+}
+
+.control-panel__inner-container {
+  margin: 0.8rem 0;
+}
+
+.control-panel__header {
+  margin-top: 0.4rem;
+}
+
+.plot {
+  width: 90vw;
+  max-width: 32rem;
+  margin: 1rem auto;
+  background-color: var(--additional-color-darker);
+  height: 30vh;
+  border: 10px solid var(--light);
+  border-radius: 10px;
+  box-shadow: 4px 3px 0px rgba(13, 14, 35, 0.5);
+}
+
+@media only screen and (min-width: 600px){
+  .plot {
+    width: 50vw;
+    max-width: 32rem;
+  }
+}
